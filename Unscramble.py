@@ -7,15 +7,15 @@ from time import clock
 while True:
 		
 	letters = raw_input('\nEnter letters: ') 	# Get letters
-	if not letters: break 				# Exit if blank
+	if not letters: break 						# Exit if blank
 		
-	start_time = clock()				# Get start time
-	words = set()					# Make words set
+	start_time = clock()						# Get start time
+	words = set()								# Make words set
 
 	# Open a dictionary stored in txt format
 	with open ('us_english_61k.txt', 'r') as f:
 		for word in f:
-			word = word.replace('\n', '')	# Remove \n character
+			word = word.replace('\n', '')		# Remove \n character
 			# Add words to set that match scramble length only
 			if len(word) == len(letters):		
 				words.add(word)
@@ -23,7 +23,7 @@ while True:
 	# Permutate the scrambled letters into every combination
 	perms = set(permutations(letters))
 
-	print 'Unscrambled words found:'
+	print '\nUnscrambled words found:'
 
 	# Test each permutation of scramble against loaded dictionary
 	for p in perms:
@@ -34,6 +34,6 @@ while True:
 			print word_test
 			
 	# Print time rounded to ms		
-	print 'Time: {}s'.format(round(clock() - start_time, 3))
+	print '.....\nTime: {}s\n.....'.format(round(clock() - start_time, 3))
 
 print 'Exiting...'
