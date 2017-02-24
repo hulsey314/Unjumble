@@ -4,8 +4,7 @@ from itertools import permutations
 from time import clock
 
 # Ask for scrambles to solve until no more are entered
-while True:
-		
+while True:	
 	letters = raw_input('\nEnter letters: ') 	# Get letters
 	if not letters: break 				# Exit if blank
 		
