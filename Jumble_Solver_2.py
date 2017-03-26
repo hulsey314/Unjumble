@@ -4,19 +4,6 @@
 from itertools import permutations
 from time import clock
 
-# Print intro
-print """
-        **********************************
-      *                                    * 
-     *    Ben's Magic Word Jumble Solver    *
-     *             v 2.0.1                  *
-      *                                    *
-        **********************************
-
-   *Enter jumbled letters or leave blank to exit*
-    * If the jumble answer is 2 words, enter 2 *
-"""
-
 def getWordsFromDictionary(length):
 	# Returns words from loaded dictionary when len() == length
 	# Create set
@@ -29,7 +16,8 @@ def getWordsFromDictionary(length):
 			if len(word) == length:		
 				words.add(word)
 	return words
-	
+
+
 def getPermutations(letters):
 	# Get permutations of the letters
 	all_perms = permutations(letters)
@@ -38,8 +26,8 @@ def getPermutations(letters):
 	perms = set()
 	for perm in all_perms:
 		perms.add(''.join(perm))
-
 	return perms
+
 
 def solve_2_words(letters, len_word_1, quiet = False):
 	# Solve a 2 word jumble
@@ -55,7 +43,6 @@ def solve_2_words(letters, len_word_1, quiet = False):
 			print 'This may take hours...'
 		elif len(letters) > 18:
 			print 'This will take forever... Try something else.'
-		
 		print 'Scrambling letters...'
 		
 	# Permutate the jumbled letters
@@ -79,7 +66,21 @@ def solve_2_words(letters, len_word_1, quiet = False):
 					print 'Answer found: {}'.format(answer)
 				
 	return answers
-	
+
+
+# Print intro
+print """
+        **********************************
+      *                                    * 
+     *    Ben's Magic Word Jumble Solver    *
+     *             v 2.0.1                  *
+      *                                    *
+        **********************************
+
+   *Enter jumbled letters or leave blank to exit*
+    * If the jumble answer is 2 words, enter 2 *
+"""
+
 
 # Ask for jumbles to solve until no more are entered
 while True:	
