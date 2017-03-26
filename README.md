@@ -1,2 +1,3 @@
-# Unscramble
-Word Unscrambler - written in 15 minutes as a speed challenge against a relative to solve a newspaper scramble problem
+# Word Jumbler Solver
+Word jumble solver, used to solve jumble 'colisa' in TN newspaper
+Now can attempt to solve a 2 word jumble
