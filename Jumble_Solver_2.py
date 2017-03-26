@@ -9,7 +9,7 @@ print """
         **********************************
       *                                    * 
      *    Ben's Magic Word Jumble Solver    *
-     *             v 2.0.0                  *
+     *             v 2.0.1                  *
       *                                    *
         **********************************
 
@@ -88,6 +88,8 @@ while True:
 	if not letters: break 							# Exit if blank
 	
 	letters = letters.replace(' ', '')				# Remove any spaces
+	# Remove characters that aren't letters
+	letters = ''.join([letter for letter in letters if letter.isalpha()])
 	letters = letters.lower()						# Make lowercase
 
 	# Check if the answer is 2 words
