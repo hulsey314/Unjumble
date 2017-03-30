@@ -41,7 +41,6 @@ def getPermutations(letters):
 
 def solve_2_words(letters, len_word_1, quiet = False):
 	# Solve a 2 word jumble
-	# First, get permutations of the letters
 	
 	# Get rid of spaces, non-letters, and make lowercase
 	letters = cleanLetters(letters)
