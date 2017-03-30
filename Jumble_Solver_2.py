@@ -1,5 +1,5 @@
 # Word jumble solver, used to solve jumble 'colisa' in TN newspaper
-# Now can attempt to solve a 2 word jumble
+# Now can attempt to solve a 2 word jumble, may take a while
 
 from itertools import permutations
 from time import clock
@@ -17,6 +17,17 @@ def getWordsFromDictionary(length):
 				words.add(word)
 	return words
 
+def cleanLetters(letters):
+	# Get rid of characters that aren't letters, make lowercase
+	# Remove spaces
+	letters = letters.replace(' ', '')
+	# Remove non-alpha characters
+	letters = ''.join([letter for letter in letters if letter.isalpha()])
+	# Make lowercase
+	letters = letters.lower()
+	# Return cleaned letters
+	return letters
+
 
 def getPermutations(letters):
 	# Get permutations of the letters
@@ -26,14 +37,17 @@ def getPermutations(letters):
 	perms = set()
 	for perm in all_perms:
 		perms.add(''.join(perm))
-	return perms
 
+	return perms
 
 def solve_2_words(letters, len_word_1, quiet = False):
 	# Solve a 2 word jumble
 	# First, get permutations of the letters
 	
-	# Don't print anything if quiet == True	
+	# Get rid of spaces, non-letters and make lowercase
+	letters = cleanLetters(letters)
+	
+	# Don't print progress if quiet == True	
 	if quiet == False:
 		if len(letters) == 10:
 			print 'This will take a minute...'
@@ -43,6 +57,7 @@ def solve_2_words(letters, len_word_1, quiet = False):
 			print 'This may take hours...'
 		elif len(letters) > 18:
 			print 'This will take forever... Try something else.'
+		
 		print 'Scrambling letters...'
 		
 	# Permutate the jumbled letters
@@ -73,7 +88,7 @@ print """
         **********************************
       *                                    * 
      *    Ben's Magic Word Jumble Solver    *
-     *             v 2.0.1                  *
+     *             v 2.0.2                  *
       *                                    *
         **********************************
 
@@ -89,9 +104,6 @@ while True:
 	if not letters: break 							# Exit if blank
 	
 	letters = letters.replace(' ', '')				# Remove any spaces
-	# Remove characters that aren't letters
-	letters = ''.join([letter for letter in letters if letter.isalpha()])
-	letters = letters.lower()						# Make lowercase
 
 	# Check if the answer is 2 words
 	if '2' in letters:
@@ -110,6 +122,9 @@ while True:
 		start_time = clock()	# Get start time
 		# Load word set from dictionary
 		words = getWordsFromDictionary(len(letters))
+		
+		# Get rid of spaces, change to lowercase
+		letters = cleanLetters(letters)
 		
 		# Permutate the jumbled letters
 		perms = getPermutations(letters)
