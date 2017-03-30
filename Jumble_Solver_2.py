@@ -18,10 +18,8 @@ def getWordsFromDictionary(length):
 	return words
 
 def cleanLetters(letters):
-	# Get rid of characters that aren't letters, make lowercase
-	# Remove spaces
-	letters = letters.replace(' ', '')
-	# Remove non-alpha characters
+	# Get rid of characters that aren't letters and make lowercase
+	# Remove non-alpha characters and spaces
 	letters = ''.join([letter for letter in letters if letter.isalpha()])
 	# Make lowercase
 	letters = letters.lower()
@@ -44,7 +42,7 @@ def solve_2_words(letters, len_word_1, quiet = False):
 	# Solve a 2 word jumble
 	# First, get permutations of the letters
 	
-	# Get rid of spaces, non-letters and make lowercase
+	# Get rid of spaces, non-letters, and make lowercase
 	letters = cleanLetters(letters)
 	
 	# Don't print progress if quiet == True	
