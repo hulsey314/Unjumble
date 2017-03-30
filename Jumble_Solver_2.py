@@ -149,8 +149,7 @@ while True:
 		print '\n\nNo unjumbled words found...'
 			
 	# Print time rounded to ms		
-	time_output = 'Time: {}s'.format(round(clock() - start_time, 3))
-	print '\n'
+	time_output = 'Time: {}s\n'.format(round(clock() - start_time, 3))
 	print '=' * len(time_output)
 	print time_output
 	print '=' * len(time_output)
