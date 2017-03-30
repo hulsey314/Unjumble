@@ -17,6 +17,7 @@ def getWordsFromDictionary(length):
 				words.add(word)
 	return words
 
+
 def cleanLetters(letters):
 	# Get rid of characters that aren't letters and make lowercase
 	# Remove non-alpha characters and spaces
@@ -35,8 +36,8 @@ def getPermutations(letters):
 	perms = set()
 	for perm in all_perms:
 		perms.add(''.join(perm))
-
 	return perms
+
 
 def solve_2_words(letters, len_word_1, quiet = False):
 	# Solve a 2 word jumble
@@ -77,7 +78,6 @@ def solve_2_words(letters, len_word_1, quiet = False):
 				
 				if not quiet:
 					print 'Answer found: {}'.format(answer)
-				
 	return answers
 
 
@@ -94,14 +94,13 @@ print """
     * If the jumble answer is 2 words, enter 2 *
 """
 
-
 # Ask for jumbles to solve until no more are entered
 while True:	
 	print '------------------------------------------------------------'
-	letters = raw_input('\nJumbled letters: ') 		# Get letters
-	if not letters: break 							# Exit if blank
+	letters = raw_input('\nJumbled letters: ') 	# Get letters
+	if not letters: break 				# Exit if blank
 	
-	letters = letters.replace(' ', '')				# Remove any spaces
+	letters = letters.replace(' ', '')		# Remove any spaces
 
 	# Check if the answer is 2 words
 	if '2' in letters:
@@ -114,10 +113,14 @@ while True:
 		# Convert to int
 		len_word_1 = int(len_word_1)
 		letters = raw_input('Jumbled letters: ')
-		start_time = clock()	# Get start time
+		# Get start time
+		start_time = clock()
+		# Solve 2 word jumble
 		words_found = solve_2_words(letters, len_word_1)
 	else:
-		start_time = clock()	# Get start time
+		# Get start time
+		start_time = clock()	
+		
 		# Load word set from dictionary
 		words = getWordsFromDictionary(len(letters))
 		
