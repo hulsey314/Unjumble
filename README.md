@@ -1,4 +1,4 @@
-# Word Jumbler Solver
+# Word Jumble Solver
 Word jumble solver, used to solve jumble 'colisa' in TN newspaper.  Single word jumbles are solved in under a second.
 
 Update v2.0.0
